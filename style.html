@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html ng-app="Sectors">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<head lang="en">
+	
+	<title>Bread and Bucks</title>
+	 <link rel="icon" type="image/png" href="C:\Users\Aishwarya\Desktop\bnb\images\favicon.ico">
+	<link rel="stylesheet" type="text/css" href="mainpage.css">
+</head>
+<body >
+
+	<main>
+		<header>
+		
+			<!--<h1 class="titleName">BREAD 'N' BUCKS</h1>-->
+		<div class="w3-top">
+  <ul class="w3-navbar w3-white w3-wide w3-padding-8 w3-card-2">
+    <li>
+      <a class="w3-margin-left"><b>BREAD 'N' BUCKS</b></a>
+    </li>
+    <!-- Float links to the right. Hide them on small screens -->
+    <li class="w3-right w3-hide-small">
+
+    </li>
+  </ul>
+</div>
+		</header>
+		
+		<section  ng-controller="getSector as gs" >
+		
+			<div class="menu">
+					<!-- Button to open the modal login form -->
+				<button onclick="document.getElementById('id01').style.display='block'" style="margin-left:70%;">Login</button>
+
+				<!-- The Modal -->
+				<div id="id01" class="modal">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+					<!-- Modal Content -->
+					<form class="modal-content animate" >
+						<div class="imgcontainer">
+							<img src="Images/login_img.png" alt="Login Image" class="avatar">
+						</div>
+
+						<div class="container">
+							<label><b>Username</b></label>
+								<input type="text" placeholder="Enter Username" id="uname" required><br>
+
+							<label><b>Password</b></label>
+								<input type="password" placeholder="Enter Password" id="psw" required><br>
+
+							<button type="submit" ng-click="gs.login()">Login</button><br>
+		
+						</div>
+
+						<div class="containercan" >
+				
+							<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+							
+						</div>
+					</form>
+				</div>
+
+			
+			</div>
+		
+				
+		
+			<div id="nav-wrapper">
+				<ul class="tab">
+					<li><a>Home</a></li>
+					<li><a>SIGN IN</a></li>
+					<li><a>ABOUT</a></li>
+					<li><a>REVIEWS</a></li>
+					<div class="dropdown">
+					<li><a>SECTORS  &#9662;</a>
+						<ul>
+						  <div class="dropdown-content">
+						  	<li><a>sector 1</a></li>
+							<li ng-repeat="item in content" ng-click="gs.submit(item.name,item.symbol,'http://localhost:8080/RestDemoService/securityDisplay')"><a>{{item.name}}  {{item.symbol}}</a><br></li>
+
+								<li><a>sector 2</a></li>								
+								<li><a>sector 3</a></li>
+								<li><a>sector 4</a></li>
+						
+							</ul>
+						</div>
+					</li>
+					<div>
+					
+				</ul>	
+	
+				</div>
+				
+				<img class="bckimg" src="images\download.jpg">
+				
+<div class="form">
+    <div class="tab-content">
+        <div id="signup">   
+			<h1>Sign Up for Free</h1>
+          
+			<form action="/" method="post">
+          
+			<div class="top-row">
+				<div class="field-wrap">
+					<label>First Name<span class="req">*</span>
+					</label>
+					<input type="text" required autocomplete="off" />
+				</div>
+        
+				<div class="field-wrap">
+					<label>Last Name<span class="req">*</span>
+					</label>
+					<input type="text"required autocomplete="off"/>
+				</div>
+			</div>
+		  
+		    <div class="field-wrap">
+				<label>Username<span class="req">*</span>
+				</label>
+				<input type="text"required autocomplete="off"/>
+			</div>
+            	
+			<div class="field-wrap">
+				<label>Email ID<span class="req">*</span>
+				</label>
+				<input type="text"required autocomplete="off"/>
+			</div>
+			
+			<div class="field-wrap">
+				<label>Set A Password<span class="req">*</span>
+				</label>
+				<input type="password"required autocomplete="off"/>
+			</div>
+			</div>
+          
+			<button type="submit" class="button button-block"/>Get Started</button>    
+		
+          </form>
+		  	
+        </div>  
+		
+		
+      </div><!-- tab-content -->     
+	  
+</div> <!-- /form -->
+
+
+			
+		</section>
+		
+	</main>
+	<footer>
+		<p>
+			*DISCLAIMER:
+		</p>
+	
+	</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+	</script>
+	<script type="text/javascript">
+	var app = angular.module('Sectors', []);
+	
+	app.controller('getSector', function($scope, $http) {
+		
+			window.onload=function()
+			{
+				$http.get('http://localhost:8080/RestDemoService/sectorDisplay')
+					.then(function(response) {
+        $scope.content = response.data;
+        
+        $scope.statustext = response.status;
+		
+        
+											});
+					
+			};
+	
+	this.submit = function(UIname,UIsymbol,serviceName) {
+	
+	var varname = {name:UIname,symbol:UIsymbol};
+    var jsonv = JSON.stringify(varname);
+	console.log(jsonv);
+		$http.post(serviceName,jsonv,{'Content':'application/json','Accept':'application/json'})
+		.then(function(response){			//Anonymus function for success callback
+		
+			console.log(response.data);		//Prints success log
+			
+			
+		},function(response){				//Anonymus function for error callback
+		
+			console.log("There was an error: " + response.status + " " + response.statusText);
+											//Prints error log
+							});
+			
+		};
+		
+		
+	this.login=function()
+	{ var Uname=document.getElementById('uname');
+	  var Upswd=document.getElementById('psw');
+	  this.submit(Uname,Upswd,'http://localhost:8080/RestDemoService/securityDisplay');
+	
+	};
+	
+	});
+</script>
+	
+</body>
+</html>

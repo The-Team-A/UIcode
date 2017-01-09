@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html ng-app="Sectors">
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Bread and Bucks</title>
+	<!-- <link rel="icon" type="image/png" href="Images/apple.png"> -->
+	<link rel="stylesheet" type="text/css" href="mainpage.css">
+</head>
+<body >
+
+	<main>
+		<header>
+			<h1 class="titleName">BREAD AND BUCKS</h1>
+		</header>
+		
+		<section  ng-controller="getSector as gs" >
+		
+			<div class="menu">
+				<!-- Button to open the modal login form -->
+				<button onclick="document.getElementById('id01').style.display='block'" style="margin-left:70%;">Login</button>
+
+				<!-- The Modal -->
+				<div id="id01" class="modal">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+					<!-- Modal Content -->
+					<form class="modal-content animate" >
+						<div class="imgcontainer">
+							<img src="Images/login_img.png" alt="Login Image" class="avatar">
+						</div>
+
+						<div class="container">
+							<label><b></b></label>
+								<input type="text" placeholder="Enter Email-id" id="uname" required><br>
+
+							<label><b></b></label>
+								<input type="password" placeholder="Enter Password" id="psw" required><br>
+
+							<button type="submit" ng-click="gs.login()">Login</button><br>
+		
+						</div>
+
+						<div class="containercan" >
+				
+							<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+							
+						</div>
+					</form>
+				</div>
+
+			
+			</div>
+		
+				
+		
+			<div id="nav-wrapper">
+				<ul class="tab tab-pane fade in active">              
+					<li><a ng-click="gs.select(1)">HOME</a></li>
+					<li><a ng-click="gs.select(2)">MY PAGE </a><li>
+					<li><a ng-click="gs.select(3)">SIGN IN</a></li>
+					<li><a ng-click="gs.select(4)">ABOUT</a></li>
+					<div class="dropdown">
+					<li><a> SECTORS &#9662;</a>
+						<ul>
+						  <div class="dropdown-content">
+						  	<li><a>hiiiiiiii</a></li>
+							<li ng-repeat="item in content" ng-click="gs.select(5)"><a>{{item.name}}  {{item.symbol}}</a><br></li>
+
+								<li><a>hiiiiiiiiii</a></li>				
+								<li><a>hiiiiiiiiiii</a></li>
+								
+						
+							</ul>
+						</div>
+					</li>
+					<div>
+					
+				</ul>	
+	
+				</div>
+<div class="form">
+      
+
+      
+        <div id="signup" class="Sgn">   
+          <h1>Sign Up for Free</h1>
+          
+          <form action="/" method="post">
+          
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>First Name<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" id="fname"/>
+            </div>
+        
+            <div class="field-wrap">
+              <label>Last Name<span class="req">*</span>
+              </label>
+              <input type="text"required autocomplete="off" id="lname"/>
+            </div>
+          </div>
+		  
+		  <div class="field-wrap">
+            <label>Mobile Number<span class="req">*</span>
+            </label>
+            <input type="phone" id="phone"/>
+         </div>
+         
+		<div class="field-wrap">
+            <label>Email Address<span class="req">*</span>
+            </label>
+            <input type="email"required autocomplete="off" id="eid"/>
+         </div> 
+          
+          <div class="field-wrap">
+            <label>Set A Password<span class="req">*</span>
+            </label>
+            <input type="password"required autocomplete="off" id="passwd"/>
+          </div>
+          
+          <button type="submit" class="button button-block">Get Started</button>
+		</div>
+		
+          
+          </form>
+
+        </div>
+        
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+
+<!-- /MY PAGE -->
+	<div id="sector" class="mysec">
+		<table border=1>
+			<tr><th>COMPANY NAME</th><th>STATISTICS</th><th>CURRENT RATE</th><th>STATUS</th></tr>
+			<tr><td>COMPANY</td><td>RATE</td><td>STATUS</td></tr>
+			<tr ng-repeat="sec in content"><td>{{sec.company}}</td><td>{{sec.rate}}</td><td>{{sec.status}}</td></tr>
+		</table>
+
+
+	<div id="mypage" class="mypagetable">
+		<table border=1>
+			<tr><th>COMPANY NAME</th><th>CURRENT RATE</th><th>STATUS</th></tr>
+			<tr><td>COMPANY</td><td>RATE</td><td>STATUS</td></tr>
+			<tr ng-repeat="cont in mypage"><td>{{cont.company}}</td><td>{{cont.rate}}</td><td>{{cont.status}}</td></tr>
+		</table>
+	
+	</div>
+		</section>
+		
+	</main>
+	<footer>
+		<p>
+			*DISCLAIMER:
+		</p>
+	
+	</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+	</script>
+	
+	<script src="mainpagejs.js"></script>
+	
+</body>
+</html>

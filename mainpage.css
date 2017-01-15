@@ -1,10 +1,11 @@
 
+
 .titleName{
 	margin-left:300px;
     margin-top:10px;
 	text-align:center;
 	display:inline;
-	background-color:#F0E68C
+	background-color:#F0E68C;
 
 }	
 
@@ -20,7 +21,9 @@ ul.tab {
 }
 
 /* Float the list items side by side */
-ul.tab li {float: left;}
+ul.tab li {
+	float: left;
+}
 
 /* Style the links inside the list items */
 ul.tab li a {
@@ -50,7 +53,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
@@ -65,7 +68,6 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 	
 .containercan
 {
-	
 	background-color:#f1f1f1;
 }	
 /* The Modal (background) */
@@ -73,23 +75,25 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
+	margin-top:0px;
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    height: 150%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+    padding-top: 45px;
 }
 
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 10px auto; /* 15% from the top and centered */
+    margin: 0px auto; /* 15% from the top and centered */
+	margin-top:00px;
     border: 5px solid #888;
-    width: 50%;
-		height: 60%;/* Could be more or less, depending on screen size */
+    width: 50%;		/* Could be more or less, depending on screen size */
+	height: 65%;
 }
 
 /* The Close Button */
@@ -129,7 +133,7 @@ form {
     border: 3px solid #f1f1f1;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password]  ,input[type=email] ,input[type=phone]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -188,8 +192,11 @@ span.psw {
     }
 }
 
-
 /*sign up */
+
+.Sgn{
+	display:block;
+}
 body {
   font-family: 'Titillium Web', sans-serif;
 }
@@ -197,10 +204,11 @@ body {
 
 .form {
   
-  padding: 40px;
+  padding: 00px;
   max-width:50%;
   max-height:100%;
   margin:40px auto;
+  margin-top:00px;
 
 }
 
@@ -279,14 +287,17 @@ label.highlight {
 }
 
 input, textarea {
-  font-size:18px;
+  font-size:22px;
   display:block;
-  width:90%;
-  height:90%;
-  padding:5px 5px;
+  width:95%;
+  height:100%;
+  padding:5px 10px;
+  background:none;
+  background-image:none;
+  border:1px solid $gray-light;
   color:$white;
   border-radius:0;
-  
+  transition:border-color .25s ease, box-shadow .25s ease;
   &:focus {
 		outline:0;
 		border-color:$main;
@@ -329,17 +340,56 @@ input, textarea {
 .bckimg
 {
 	width:100%;
-	height:400px;
+	height:700px;
+	visibility:block;
+	padding-top: 00px;
+    padding-bottom: 50px;
 }
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+	margin-left:20px;
+	margin-right:50px;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even){
+	background-color: #f2f2f2
+}
+
+.mypagetable
+{
+	display:block;
+}
+
+.mysec
+{
+	padding-top:00px;
+	display:block;
+}
+
+.sectab
+{
+	font-size:5px;
+	text-align:center;
+}
+
+.savebtn
+{
+	position:relative;
+	width:60px;
+}
+
 footer{
-    position:fixed;
+    position:relative;
     height:10%;
     bottom:0px;
     left:0px;
     right:0px;
     margin-bottom:0px;
 }
-
-
-
-
